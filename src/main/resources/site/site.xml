@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<site xmlns="urn:enonic:xp:model:1.0">
+  <form>
+    <input name="name" type="TextLine">
+      <label i18n="site.name">Name</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="short_name" type="TextLine">
+      <label i18n="site.shortName">Short Name</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="background_color" type="TextLine">
+      <label i18n="site.backgroundColor">Background color</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="theme_color" type="TextLine">
+      <label i18n="site.theme_color">Theme color</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="description" type="TextLine">
+      <label i18n="site.description">Description</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="display" type="ComboBox">
+      <label i18n="site.display">Display</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config>
+        <option value="fullscreen">fullscreen</option>
+        <option value="standalone">standalone</option>
+        <option value="minimal-ui">minimal-ui</option>
+        <option value="browser">browser</option>
+      </config>
+    </input>
+
+    <input name="categories" type="ComboBox">
+      <label i18n="site.categories">Categories</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <option value="beauty">beauty</option>
+        <option value="books">books</option>
+        <option value="books &amp; reference">books &amp; reference</option>
+        <option value="business">business</option>
+        <option value="cars">cars</option>
+        <option value="dating">dating</option>
+        <option value="design">design</option>
+        <option value="developer">developer</option>
+        <option value="developer tools">developer tools</option>
+        <option value="development">development</option>
+        <option value="education">education</option>
+        <option value="entertainment">entertainment</option>
+        <option value="events">events</option>
+        <option value="fashion">fashion</option>
+        <option value="finance">finance</option>
+        <option value="fitness">fitness</option>
+        <option value="food">food</option>
+        <option value="fundraising">fundraising</option>
+        <option value="games">games</option>
+        <option value="government">government</option>
+        <option value="graphics">graphics</option>
+        <option value="graphics &amp; design">graphics &amp; design</option>
+        <option value="health">health</option>
+        <option value="health &amp; fitness">health &amp; fitness</option>
+        <option value="kids">kids</option>
+        <option value="lifestyle">lifestyle</option>
+        <option value="magazines">magazines</option>
+        <option value="medical">medical</option>
+        <option value="multimedia">multimedia</option>
+        <option value="multimedia design">multimedia design</option>
+        <option value="music">music</option>
+        <option value="navigation">navigation</option>
+        <option value="network">network</option>
+        <option value="networking">networking</option>
+        <option value="news">news</option>
+        <option value="parenting">parenting</option>
+        <option value="personalization">personalization</option>
+        <option value="pets">pets</option>
+        <option value="photo">photo</option>
+        <option value="photo &amp; video">photo &amp; video</option>
+        <option value="politics">politics</option>
+        <option value="productivity">productivity</option>
+        <option value="reference">reference</option>
+        <option value="security">security</option>
+        <option value="shopping">shopping</option>
+        <option value="social">social</option>
+        <option value="social networking">social networking</option>
+        <option value="sports">sports</option>
+        <option value="transportation">transportation</option>
+        <option value="travel">travel</option>
+        <option value="utilities">utilities</option>
+        <option value="video">video</option>
+        <option value="weather">weather</option>
+      </config>
+    </input>
+
+    <input name="iconId" type="ImageSelector" >
+      <label i18n="site.icon">Icon</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <item-set name="shortcuts">
+      <label i18n="site.shortcuts">Shortcuts</label>
+      <occurrences minimum="0" maximum="0"/>
+
+      <items>
+        <input name="name" type="TextLine">
+          <label i18n="site.shortcuts.name">Name</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+
+        <input name="short_name" type="TextLine">
+          <label i18n="site.shortcuts.shortName">Short Name</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+
+        <input name="description" type="TextLine">
+          <label i18n="site.shortcuts.description">Description</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+
+        <input name="pageId" type="ContentSelector">
+          <label i18n="site.shortcuts.url">URL</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+
+        <input name="iconId" type="ImageSelector" >
+          <label i18n="site.shortcuts.icon">Icon</label>
+          <occurrences minimum="0" maximum="1"/>
+        </input>
+      </items>
+    </item-set>
+
+    <item-set name="related_applications">
+      <label i18n="site.relatedApplications">Related applications</label>
+      <occurrences minimum="0" maximum="0"/>
+
+      <items>
+        <input name="platform" type="ComboBox">
+          <label i18n="site.platform">Platform</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <option value="chrome_web_store">Google Chrome Web Store</option>
+            <option value="play">Google Play Store</option>
+            <option value="chromeos_play">Chrome OS Play</option>
+            <option value="webapp">Web apps</option>
+            <option value="windows">Windows Store</option>
+            <option value="f-droid">F-droid</option>
+            <option value="amazon">Amazon App Store</option>
+          </config>
+        </input>
+
+        <input name="url" type="TextLine">
+          <label i18n="site.relatedApplications.url">URL</label>
+          <occurrences minimum="0" maximum="1"/>
+          <config>
+            <regexp>https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&amp;\/\/=]*)</regexp>
+          </config>
+        </input>
+      </items>
+    </item-set>
+
+    <item-set name="screenshots">
+      <label i18n="site.screenshots">Screenshots</label>
+      <occurrences minimum="0" maximum="0"/>
+
+      <items>
+        <input name="imageId" type="ImageSelector" >
+          <label i18n="site.imageId">Image</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+
+        <input name="form_factor" type="RadioButton">
+          <label i18n="site.form_factor">Form factor</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <option value="narrow" i18n="site.form_factor.narrow">Narrow</option>
+            <option value="wide" i18n="site.form_factor.wide">Wide</option>
+          </config>
+        </input>
+      </items>
+    </item-set>
+  </form>
+
+  <processors>
+    <response-processor name="manifest" order="100"/>
+  </processors>
+</site>

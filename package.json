@@ -1,0 +1,32 @@
+{
+  "name": "@itemconsulting/xp-manifest",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.3",
+    "@enonic-types/core": "^7.15.1",
+    "@enonic-types/global": "^7.15.1",
+    "@enonic-types/lib-portal": "^7.15.1",
+    "@enonic-types/lib-content": "^7.15.1",
+    "@eslint/js": "^9.26.0",
+    "@swc/core": "^1.11.24",
+    "@types/node": "^22.15.17",
+    "@types/web-app-manifest": "^1.0.9",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  },
+  "private": true,
+  "scripts": {
+    "build":  "node tsup/anyServerFiles.js && npx tsup -d build/resources/main",
+    "check": "concurrently -c auto -g --timings npm:check:types npm:lint",
+    "check:types": "node tsup/anyServerFiles.js && npx tsc --noEmit -p src/main/resources/tsconfig.json",
+    "lint": "eslint --cache \"src/main/resources/**/*.ts\"",
+    "release": "npm run build",
+    "versioning": "npx changeset version && npm i --package-lock-only && NEW_VERSION=$(node -p \"require('./package.json').version\") && sed -i \"s/version.*/version = ${NEW_VERSION}/\" gradle.properties"
+  }
+}
